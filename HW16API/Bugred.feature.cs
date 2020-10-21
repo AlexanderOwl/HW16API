@@ -283,7 +283,7 @@ this.FeatureBackground();
  testRunner.Given("name of user QA_Alex", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 42
- testRunner.And("email of user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("new email of user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 43
  testRunner.And("user password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -345,7 +345,7 @@ this.FeatureBackground();
  testRunner.Given("name of user QA_Alex", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 53
- testRunner.And("exist email of user divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("user email divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 54
  testRunner.And("user password divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -360,7 +360,7 @@ this.FeatureBackground();
  testRunner.But("response type is error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
 #line hidden
 #line 58
- testRunner.And("response contains <уже есть в базе> and <email>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("response contains уже есть в базе and email", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();
@@ -401,10 +401,10 @@ this.FeatureBackground();
 this.FeatureBackground();
 #line hidden
 #line 63
- testRunner.Given("exist name of user QA_Alex", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+ testRunner.Given("exist name of user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 64
- testRunner.And("user email divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("new email of user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 65
  testRunner.And("user password divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
@@ -419,7 +419,7 @@ this.FeatureBackground();
  testRunner.But("response type is error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
 #line hidden
 #line 69
- testRunner.And("response contains <уже есть в базе> and <Текущее ФИО>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.And("response contains уже есть в базе and Текущее ФИО", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

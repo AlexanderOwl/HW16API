@@ -154,10 +154,10 @@ namespace HW16API
             userName = name + time;
         }
 
-        [Given(@"email of user")]
+        [Given(@"new email of user")]
         public void GivenEmailOfUser()
         {  
-            email = userName + "@gmail.com"; 
+            email = "QA_Alex"+time + "@gmail.com"; 
         }
          
         [Given(@"user password")]
@@ -211,12 +211,6 @@ namespace HW16API
         #endregion
 
         #region doRegisterExistEmail
-        [Given(@"exist email of user (.*)")]
-        public void GivenExistEmailOfUser(string existEmail)
-        {
-            email = existEmail;
-        }
-
         [Given(@"user password (.*)")]
         public void GivenUserPassword(string userPassword)
         {
@@ -240,11 +234,12 @@ namespace HW16API
         #endregion
 
         #region doRegisterExistName     
-        [Given(@"exist name of user QA_Alex")]
-        public void GivenExistNameOfUserQA_Alex()
+        [Given(@"exist name of user")]
+        public void GivenExistNameOfUser()
         {
             userName = "Cашенька";
-        }        
+        }
+
         #endregion
 
 

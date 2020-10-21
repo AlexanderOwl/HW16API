@@ -39,7 +39,7 @@ Then account successful created status code OK
   @doRegister
  Scenario: Register new user
  Given name of user QA_Alex
- And email of user
+ And new email of user
  And user password
  When send post request to do register to /tasks/rest/doregister
  Then account successful created status code OK
@@ -50,21 +50,21 @@ Then account successful created status code OK
   @doRegister @negative
  Scenario: Register exist email
  Given name of user QA_Alex
- And exist email of user divohi1607@fazmail.net
- And user password divohi1607@fazmail.net
- When send post request to do register to /tasks/rest/doregister
- Then account successful created status code OK
- But response type is error
- And response contains <уже есть в базе> and <email>
- 
-
-  @doRegister @negative
- Scenario: Register exist user name
- Given exist name of user QA_Alex
  And user email divohi1607@fazmail.net
  And user password divohi1607@fazmail.net
  When send post request to do register to /tasks/rest/doregister
  Then account successful created status code OK
  But response type is error
- And response contains <уже есть в базе> and <Текущее ФИО>
+ And response contains уже есть в базе and email
+ 
+
+  @doRegister @negative
+ Scenario: Register exist user name
+ Given exist name of user
+ And new email of user
+ And user password divohi1607@fazmail.net
+ When send post request to do register to /tasks/rest/doregister
+ Then account successful created status code OK
+ But response type is error
+ And response contains уже есть в базе and Текущее ФИО
  
