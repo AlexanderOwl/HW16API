@@ -32,7 +32,7 @@ namespace HW16API
         }
 
         
-        #region CreateCompany ООО       
+        #region CreateCompany       
         [Given(@"company name (.*)")]
         public void GivenCompanyName(string name)
         {
@@ -239,7 +239,6 @@ namespace HW16API
         {
             userName = "Cашенька";
         }
-
         #endregion
 
 
