@@ -7,7 +7,7 @@ Background:
     Given create of a new rest client with url http://users.bugred.ru
 
 @createNewCompany @ООО
-Scenario: Create a new company ООО
+Scenario Outline: Create a new company ООО
   Given company name QA_Alex & co
   And type of company <type>
   And users
