@@ -6,18 +6,24 @@
 Background:
     Given create of a new rest client with url http://users.bugred.ru
 
-@createNewCompany
-Scenario: Create a new company 
+@createNewCompany @ООО
+Scenario: Create a new company ООО
   Given company name QA_Alex & co
-  And type of company ООО
+  And type of company <type>
   And users
-  And owner email of new company divohi1607@fazmail.net
+  And user email divohi1607@fazmail.net
   When send request to /tasks/rest/createcompany with valid data
   Then company has been created  
   Then name of the company = name from request
   Then type of the company = type from request
   Then users of the company = users from request
-  
+  Examples: 
+  | type |
+  | ООО  |
+  | ОАО  |
+  |  ИП  |
+
+
   @addAvatar
 Scenario: Add avatar
 Given email divohi1607@fazmail.net and avatar path ..\..\Resources\user2.png
@@ -49,16 +55,16 @@ Then account successful created status code OK
  When send post request to do register to /tasks/rest/doregister
  Then account successful created status code OK
  But response type is error
- And response message contains уже есть в базе
- And response message contains уже есть в базе
+ And response contains <уже есть в базе> and <email>
+ 
 
   @doRegister @negative
  Scenario: Register exist user name
  Given exist name of user QA_Alex
- And email of user divohi1607@fazmail.net
+ And user email divohi1607@fazmail.net
  And user password divohi1607@fazmail.net
  When send post request to do register to /tasks/rest/doregister
  Then account successful created status code OK
  But response type is error
- And response message contains уже есть в базе
+ And response contains <уже есть в базе> and <Текущее ФИО>
  

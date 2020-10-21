@@ -84,14 +84,25 @@ namespace HW16API
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Create a new company")]
+        [NUnit.Framework.DescriptionAttribute("Create a new company ООО")]
         [NUnit.Framework.CategoryAttribute("createNewCompany")]
-        public virtual void CreateANewCompany()
+        [NUnit.Framework.CategoryAttribute("ООО")]
+        [NUnit.Framework.TestCaseAttribute("ООО", null)]
+        [NUnit.Framework.TestCaseAttribute("ОАО", null)]
+        [NUnit.Framework.TestCaseAttribute("ИП", null)]
+        public virtual void CreateANewCompanyООО(string type, string[] exampleTags)
         {
-            string[] tagsOfScenario = new string[] {
-                    "createNewCompany"};
+            string[] @__tags = new string[] {
+                    "createNewCompany",
+                    "ООО"};
+            if ((exampleTags != null))
+            {
+                @__tags = System.Linq.Enumerable.ToArray(System.Linq.Enumerable.Concat(@__tags, exampleTags));
+            }
+            string[] tagsOfScenario = @__tags;
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new company", null, tagsOfScenario, argumentsOfScenario);
+            argumentsOfScenario.Add("type", type);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Create a new company ООО", null, tagsOfScenario, argumentsOfScenario);
 #line 10
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -119,13 +130,13 @@ this.FeatureBackground();
   testRunner.Given("company name QA_Alex & co", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 12
-  testRunner.And("type of company ООО", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And(string.Format("type of company {0}", type), ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 13
   testRunner.And("users", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 14
-  testRunner.And("owner email of new company divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+  testRunner.And("user email divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
 #line 15
   testRunner.When("send request to /tasks/rest/createcompany with valid data", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
@@ -155,51 +166,6 @@ this.FeatureBackground();
                     "addAvatar"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
             TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Add avatar", null, tagsOfScenario, argumentsOfScenario);
-#line 22
-this.ScenarioInitialize(scenarioInfo);
-#line hidden
-            bool isScenarioIgnored = default(bool);
-            bool isFeatureIgnored = default(bool);
-            if ((tagsOfScenario != null))
-            {
-                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((this._featureTags != null))
-            {
-                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
-            }
-            if ((isScenarioIgnored || isFeatureIgnored))
-            {
-                testRunner.SkipScenario();
-            }
-            else
-            {
-                this.ScenarioStart();
-#line 6
-this.FeatureBackground();
-#line hidden
-#line 23
-testRunner.Given("email divohi1607@fazmail.net and avatar path ..\\..\\Resources\\user2.png", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
-#line hidden
-#line 24
-testRunner.When("add avatar post request to /tasks/rest/addavatar/?email=", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 25
-testRunner.Then("status code OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-            }
-            this.ScenarioCleanup();
-        }
-        
-        [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Delete avatar")]
-        [NUnit.Framework.CategoryAttribute("deleteAvatar")]
-        public virtual void DeleteAvatar()
-        {
-            string[] tagsOfScenario = new string[] {
-                    "deleteAvatar"};
-            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete avatar", null, tagsOfScenario, argumentsOfScenario);
 #line 28
 this.ScenarioInitialize(scenarioInfo);
 #line hidden
@@ -224,29 +190,29 @@ this.ScenarioInitialize(scenarioInfo);
 this.FeatureBackground();
 #line hidden
 #line 29
-testRunner.Given("account divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("email divohi1607@fazmail.net and avatar path ..\\..\\Resources\\user2.png", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 30
-testRunner.When("delete avatar post request to /tasks/rest/deleteavatar/?email=", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+testRunner.When("add avatar post request to /tasks/rest/addavatar/?email=", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 31
-testRunner.Then("when avatar deleted status code OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+testRunner.Then("status code OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Register new user")]
-        [NUnit.Framework.CategoryAttribute("doRegister")]
-        public virtual void RegisterNewUser()
+        [NUnit.Framework.DescriptionAttribute("Delete avatar")]
+        [NUnit.Framework.CategoryAttribute("deleteAvatar")]
+        public virtual void DeleteAvatar()
         {
             string[] tagsOfScenario = new string[] {
-                    "doRegister"};
+                    "deleteAvatar"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Register new user", null, tagsOfScenario, argumentsOfScenario);
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Delete avatar", null, tagsOfScenario, argumentsOfScenario);
 #line 34
- this.ScenarioInitialize(scenarioInfo);
+this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
             bool isFeatureIgnored = default(bool);
@@ -269,45 +235,28 @@ testRunner.Then("when avatar deleted status code OK", ((string)(null)), ((TechTa
 this.FeatureBackground();
 #line hidden
 #line 35
- testRunner.Given("name of user QA_Alex", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+testRunner.Given("account divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
 #line 36
- testRunner.And("email of user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+testRunner.When("delete avatar post request to /tasks/rest/deleteavatar/?email=", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
 #line 37
- testRunner.And("user password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 38
- testRunner.When("send post request to do register to /tasks/rest/doregister", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
-#line hidden
-#line 39
- testRunner.Then("account successful created status code OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
-#line hidden
-#line 40
- testRunner.And("response have name of user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 41
- testRunner.And("response have email of user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
-#line hidden
-#line 42
- testRunner.But("response doesn\'t have a non-encrypted password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
+testRunner.Then("account successful created status code OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
             }
             this.ScenarioCleanup();
         }
         
         [NUnit.Framework.TestAttribute()]
-        [NUnit.Framework.DescriptionAttribute("Register exist user")]
+        [NUnit.Framework.DescriptionAttribute("Register new user")]
         [NUnit.Framework.CategoryAttribute("doRegister")]
-        [NUnit.Framework.CategoryAttribute("negative")]
-        public virtual void RegisterExistUser()
+        public virtual void RegisterNewUser()
         {
             string[] tagsOfScenario = new string[] {
-                    "doRegister",
-                    "negative"};
+                    "doRegister"};
             System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
-            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Register exist user", null, tagsOfScenario, argumentsOfScenario);
-#line 45
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Register new user", null, tagsOfScenario, argumentsOfScenario);
+#line 40
  this.ScenarioInitialize(scenarioInfo);
 #line hidden
             bool isScenarioIgnored = default(bool);
@@ -330,26 +279,147 @@ this.FeatureBackground();
 #line 6
 this.FeatureBackground();
 #line hidden
-#line 46
- testRunner.Given("exist name of user divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line 41
+ testRunner.Given("name of user QA_Alex", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
 #line hidden
-#line 47
- testRunner.And("exist email of user divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 42
+ testRunner.And("email of user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 48
- testRunner.And("user password divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line 43
+ testRunner.And("user password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
-#line 49
+#line 44
  testRunner.When("send post request to do register to /tasks/rest/doregister", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
 #line hidden
-#line 50
+#line 45
  testRunner.Then("account successful created status code OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
 #line hidden
+#line 46
+ testRunner.And("response have name of user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 47
+ testRunner.And("response have email of user", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 48
+ testRunner.But("response doesn\'t have a non-encrypted password", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Register exist email")]
+        [NUnit.Framework.CategoryAttribute("doRegister")]
+        [NUnit.Framework.CategoryAttribute("negative")]
+        public virtual void RegisterExistEmail()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "doRegister",
+                    "negative"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Register exist email", null, tagsOfScenario, argumentsOfScenario);
 #line 51
- testRunner.But("response type is error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
 #line hidden
 #line 52
- testRunner.And("response message contains уже есть в базе", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+ testRunner.Given("name of user QA_Alex", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 53
+ testRunner.And("exist email of user divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 54
+ testRunner.And("user password divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 55
+ testRunner.When("send post request to do register to /tasks/rest/doregister", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 56
+ testRunner.Then("account successful created status code OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 57
+ testRunner.But("response type is error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
+#line hidden
+#line 58
+ testRunner.And("response contains <уже есть в базе> and <email>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+            }
+            this.ScenarioCleanup();
+        }
+        
+        [NUnit.Framework.TestAttribute()]
+        [NUnit.Framework.DescriptionAttribute("Register exist user name")]
+        [NUnit.Framework.CategoryAttribute("doRegister")]
+        [NUnit.Framework.CategoryAttribute("negative")]
+        public virtual void RegisterExistUserName()
+        {
+            string[] tagsOfScenario = new string[] {
+                    "doRegister",
+                    "negative"};
+            System.Collections.Specialized.OrderedDictionary argumentsOfScenario = new System.Collections.Specialized.OrderedDictionary();
+            TechTalk.SpecFlow.ScenarioInfo scenarioInfo = new TechTalk.SpecFlow.ScenarioInfo("Register exist user name", null, tagsOfScenario, argumentsOfScenario);
+#line 62
+ this.ScenarioInitialize(scenarioInfo);
+#line hidden
+            bool isScenarioIgnored = default(bool);
+            bool isFeatureIgnored = default(bool);
+            if ((tagsOfScenario != null))
+            {
+                isScenarioIgnored = tagsOfScenario.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((this._featureTags != null))
+            {
+                isFeatureIgnored = this._featureTags.Where(__entry => __entry != null).Where(__entry => String.Equals(__entry, "ignore", StringComparison.CurrentCultureIgnoreCase)).Any();
+            }
+            if ((isScenarioIgnored || isFeatureIgnored))
+            {
+                testRunner.SkipScenario();
+            }
+            else
+            {
+                this.ScenarioStart();
+#line 6
+this.FeatureBackground();
+#line hidden
+#line 63
+ testRunner.Given("exist name of user QA_Alex", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Given ");
+#line hidden
+#line 64
+ testRunner.And("user email divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 65
+ testRunner.And("user password divohi1607@fazmail.net", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
+#line hidden
+#line 66
+ testRunner.When("send post request to do register to /tasks/rest/doregister", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "When ");
+#line hidden
+#line 67
+ testRunner.Then("account successful created status code OK", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "Then ");
+#line hidden
+#line 68
+ testRunner.But("response type is error", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "But ");
+#line hidden
+#line 69
+ testRunner.And("response contains <уже есть в базе> and <Текущее ФИО>", ((string)(null)), ((TechTalk.SpecFlow.Table)(null)), "And ");
 #line hidden
             }
             this.ScenarioCleanup();

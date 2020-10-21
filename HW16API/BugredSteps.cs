@@ -32,7 +32,7 @@ namespace HW16API
         }
 
         
-        #region CreateCompany       
+        #region CreateCompany ООО       
         [Given(@"company name (.*)")]
         public void GivenCompanyName(string name)
         {
@@ -54,7 +54,7 @@ namespace HW16API
             companyData.Add("company_users", companyUsers);
         }
 
-        [Given(@"owner email of new company (.*)")]
+        [Given(@"user email (.*)")]
         public void GivenOwnerEmailOfNewCompany(string ownerEmail)
         {
             email = ownerEmail;
@@ -91,7 +91,7 @@ namespace HW16API
             var temp = response.Content;
             JObject json = JObject.Parse(temp);
             string actualResult = json["company"]["type"].ToString();
-            Assert.AreEqual("ООО", actualResult);
+            Assert.AreEqual(companyType, actualResult);
         }
 
         [Then(@"users of the company = users from request")]
@@ -230,14 +230,23 @@ namespace HW16API
             responseJson = JObject.Parse(response.Content);
             Assert.AreEqual("error", responseJson["type"]?.ToString());
         }
-
-        [Then(@"response message contains (.*)")]
-        public void ThenResponseMessageContains(string msg)
+        [Then(@"response contains (.*) and (.*)")]
+        public void ThenResponseContainsAnd(string msg, string subject)
         {
             responseJson = JObject.Parse(response.Content);
             Assert.IsTrue(responseJson["message"]?.ToString().Contains(msg));
-            Assert.IsTrue(responseJson["message"]?.ToString().Contains("email"));
+            Assert.IsTrue(responseJson["message"]?.ToString().Contains(subject));
         }
         #endregion
+
+        #region doRegisterExistName     
+        [Given(@"exist name of user QA_Alex")]
+        public void GivenExistNameOfUserQA_Alex()
+        {
+            userName = "Cашенька";
+        }        
+        #endregion
+
+
     }
 }
