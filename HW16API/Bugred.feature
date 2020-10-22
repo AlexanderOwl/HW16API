@@ -6,7 +6,7 @@
 Background:
     Given create of a new rest client with url http://users.bugred.ru
 
-@createNewCompany @ООО
+@createNewCompany
 Scenario Outline: Create a new company ООО
   Given company name QA_Alex & co
   And type of company <type>
@@ -26,7 +26,7 @@ Scenario Outline: Create a new company ООО
 
   @addAvatar
 Scenario: Add avatar
-Given email divohi1607@fazmail.net and avatar path ..\..\Resources\user2.png
+Given email divohi1607@fazmail.net and avatar path ..\..\Resources\alexey.jpg
 When add avatar post request to /tasks/rest/addavatar/?email=
 Then status code OK
 
